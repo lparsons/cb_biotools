@@ -12,7 +12,7 @@ config = {
     'version': '0.1',
     'install_requires': ['nose'],
     'packages': ['cb_biotools'],
-    'scripts': [],
+    'scripts': ['bin/rename_fasta_chromosomes.py'],
     'name': 'cb_biotools'
 }
 
