@@ -23,7 +23,8 @@ format_extensions = {
     'tab': 'tabular',
     'tsv': 'tabular',
     'fa': 'fasta',
-    'fasta': 'fasta'
+    'fasta': 'fasta',
+    'fna': 'fasta'
 }
 
 
@@ -121,6 +122,8 @@ def replace_fasta_ids(filename, cmap):
     for line in fileinput.input(filename):
         if line[0] == '>':
             old_id = line[1:].rstrip()
+            if old_id not in cmap:
+                old_id = line[1:].split(' ', 1)[0]
             new_id = cmap.get(old_id, old_id)
             line = '>%s\n' % new_id
         print line,
