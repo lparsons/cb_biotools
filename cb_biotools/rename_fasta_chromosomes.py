@@ -126,7 +126,7 @@ def replace_fasta_ids(filename, cmap):
                 old_id = line[1:].split(' ', 1)[0]
             new_id = cmap.get(old_id, old_id)
             line = '>%s\n' % new_id
-        print line,
+        print(line, end=' ')
 
 
 def replace_tabdelim_ids(filename, cmap, column_number=1):
@@ -139,7 +139,7 @@ def replace_tabdelim_ids(filename, cmap, column_number=1):
         if (len(fields) >= column_number):
             fields[column_index] = cmap.get(fields[column_index],
                                             fields[column_index])
-        print '%s\n' % '\t'.join(fields),
+        print('%s\n' % '\t'.join(fields), end=' ')
 
 
 class DuplicateChromosomeError(Exception):
@@ -155,7 +155,7 @@ class DuplicateChromosomeError(Exception):
         self.linenum = linenum
 
     def __str__(self):
-        return unicode(self).encode('utf-8')
+        return str(self).encode('utf-8')
 
     def __unicode__(self):
         return("Duplicate Chromosome ID: "

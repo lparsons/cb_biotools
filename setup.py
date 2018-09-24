@@ -1,24 +1,24 @@
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup
+
 
 config = {
-    'description': 'CB BioTools',
+    'name': 'cb_biotools',
+    'version': '0.1.1',
+    'description': 'CodeBrewer BioTools',
+    'url': 'https://github.com/lparsons/cb_biotools',
     'author': 'Lance Parsons',
-    'url': 'URL to get it at.',
-    'download_url': 'Where to download it.',
     'author_email': 'lparsons@princeton.edu',
-    'version': '0.1',
-    'install_requires': ['nose'],
     'packages': ['cb_biotools'],
     'entry_points': {
         'console_scripts': [
             'rename_fasta_chromosomes='
             'cb_biotools.rename_fasta_chromosomes:main',
+            'gtf_for_insert=cb_biotools.gtf_for_insert:main'
         ],
     },
-    'name': 'cb_biotools'
+    'install_requires': [
+        'pysam'
+    ]
 }
 
 setup(**config)
