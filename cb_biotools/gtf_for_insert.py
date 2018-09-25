@@ -36,7 +36,6 @@ def main():
 
     args = parser.parse_args()
     fasta = check_fasta(args.fasta_file.name)
-    print(fasta)
     for sequence_id in fasta.references:
         values = defaults
         values['sequence_id'] = sequence_id
